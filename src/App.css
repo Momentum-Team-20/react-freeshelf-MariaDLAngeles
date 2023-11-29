@@ -1,3 +1,57 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #093145;
+    color: #f2f3f4;
+}
+
+.bookDetails {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    border: 1px solid #f2f3f4;
+    padding: 20px;
+}
+
 .coverImage {
-    max-width: 300px;
+    width: 100%;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    margin: 5px;
+    border: 2px solid #f2f3f4;
+}
+
+.title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    font-size: xxx-large;
+
+}
+
+.author, .description {
+    margin: 0;
+}
+
+
+.publicationDate, .publisher, .author, .description, .URL {
+    font-weight: lighter;
+    font-size: x-large;
+}
+
+button {
+    padding: 10px;
+    float: left;
+    max-width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-weight: bold;
+    font-size: larger;
+    background-color: #efd469;
+    color: #093145
+
+}
+
+.collapsableBookDetails {
+    margin-top: 20px;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
