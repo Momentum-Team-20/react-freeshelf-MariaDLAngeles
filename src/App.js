@@ -5,11 +5,45 @@ function App() {
   return (
     <div>
       <h1>Freeshelf</h1>
-      <div className="titles">
-        {bookData.map((book) => {
-          return book.title;
-        })}
-        {/* how do we get all the book titles to display vertically */}
+      <div className="bookDetail">
+        {bookData.map((book) => (
+          <Book
+            title={book.title}
+            author={book.author}
+            shortDescription={book.shortDescription}
+            coverImageUrl={book.coverImageUrl}
+            publisher={book.publisher}
+            publicationDate={book.publicationDate}
+            detailedDescription={book.detailedDescription}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// this is our react component
+function Book(props) {
+  /**
+   * props: {
+   *  title: 'sometitle',
+   *  author: 'someauthor'
+   * }
+   */
+  // a way to use props with destructuring
+  // const { author, title } = props;
+
+  return (
+    <div className="bookDetails">
+      <h3>{props.title}</h3>
+      <h5>{props.author}</h5>
+      <p>{props.shortDescription}</p>
+      <img src={props.coverImageUrl} alt="book cover" className="coverImage" />
+      <div className="collapsableBookDetails">
+        <a href="link">URL</a>
+        <h6>{props.publisher}</h6>
+        <h6>{props.publicationDate}</h6>
+        <p>{props.detailedDescription}</p>
       </div>
     </div>
   );
