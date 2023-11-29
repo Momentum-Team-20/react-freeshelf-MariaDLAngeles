@@ -1,5 +1,6 @@
 import "./App.css";
 import bookData from "./book-data.json";
+import { useState } from "react";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
             author={book.author}
             shortDescription={book.shortDescription}
             coverImageUrl={book.coverImageUrl}
+            url={book.url}
             publisher={book.publisher}
             publicationDate={book.publicationDate}
             detailedDescription={book.detailedDescription}
@@ -24,6 +26,11 @@ function App() {
 
 // this is our react component
 function Book(props) {
+  const [expanded, setExpanded] = useState(false);
+  const handleClick = () => {
+    setExpanded(!expanded);
+  };
+
   /**
    * props: {
    *  title: 'sometitle',
@@ -39,12 +46,17 @@ function Book(props) {
       <h5>{props.author}</h5>
       <p>{props.shortDescription}</p>
       <img src={props.coverImageUrl} alt="book cover" className="coverImage" />
-      <div className="collapsableBookDetails">
-        <a href="link">URL</a>
-        <h6>{props.publisher}</h6>
-        <h6>{props.publicationDate}</h6>
-        <p>{props.detailedDescription}</p>
-      </div>
+      <button onClick={handleClick}>
+        {expanded ? "show less" : "show more"}
+      </button>
+      {expanded && (
+        <div className="collapsableBookDetails">
+          <a href={props.url}>URL</a>
+          <h6>{props.publisher}</h6>
+          <h6>{props.publicationDate}</h6>
+          <p>{props.detailedDescription}</p>
+        </div>
+      )}
     </div>
   );
 }
