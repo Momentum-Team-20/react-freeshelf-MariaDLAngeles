@@ -7,8 +7,9 @@
 .bookDetails {
     display: grid;
     grid-template-columns: 80% 20%;
-    border: 1px solid #f2f3f4;
+    /* border: 1px solid #f2f3f4; */
     padding: 20px;
+    margin: 20px;
 }
 
 .coverImage {
@@ -39,7 +40,6 @@
 
 button {
     padding: 10px;
-    float: left;
     max-width: 100%;
     grid-column-start: 1;
     grid-column-end: 3;
